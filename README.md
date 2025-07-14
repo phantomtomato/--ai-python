@@ -1,6 +1,6 @@
 # 五子棋 AI 项目
 
-本项目是一个基于 Python 和 C++ 实现的五子棋游戏，其中 AI 算法参考自 [colingogogo/gobang_AI](https://github.com/colingogogo/gobang_AI)，并将其核心算法改写为 C++ 语言以提高运行效率，游戏采用的是无禁手，你是黑子先下。
+本项目是一个基于 Python 和 C++ 实现的五子棋游戏，其中 AI 算法参考自 [colingogogo/gobang_AI](https://github.com/colingogogo/gobang_AI)，并将其核心算法改写为 C++ 语言以提高运行效率。
 
 ## 项目背景
 五子棋是一款经典的棋类游戏，为了实现一个具有一定智能水平的五子棋 AI，本项目参考了开源项目 `colingogogo/gobang_AI` 的算法思路，并在此基础上进行优化。将关键的 AI 计算部分用 C++ 实现，通过 Python 调用 C++ 编译生成的 DLL 文件，在保证功能完整性的同时显著提升了计算速度。
@@ -29,13 +29,14 @@
 在命令行中执行以下命令安装 Python 依赖：
 ```bash
 pip install pygame
+```
 编译与运行
 编译 C++ 代码
 如果你对 C++ 代码进行了修改，需要重新编译生成 DLL 文件。
 
 使用 MinGW
 
-bash
+
 g++ -shared -o gobang_ai.dll gobang_ai.cpp -std=c++17 -pthread
 使用 Visual Studio
 创建一个新的动态链接库 (DLL) 项目。
@@ -46,11 +47,11 @@ g++ -shared -o gobang_ai.dll gobang_ai.cpp -std=c++17 -pthread
 在命令行中进入项目目录，执行以下命令启动游戏：
 
 
-bash
+
 python 五子棋.py
 玩法说明
-落子：玩家执黑子，通过鼠标点击棋盘交叉点进行落子。
-AI 落子：玩家落子后，AI 会自动计算并落白子。
+落子：玩家执白子，通过鼠标点击棋盘交叉点进行落子。
+AI 落子：玩家落子后，AI 会自动计算并落黑子。
 悔棋：按 Z 键可以撤销上一步操作，但在 AI 计算过程中无法悔棋。
 获胜判断：当某一方在横、竖、斜方向上有连续五个相同颜色的棋子时，该方获胜。
 算法参考
